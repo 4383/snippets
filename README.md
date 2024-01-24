@@ -12,5 +12,6 @@ Launch an appropriated an environment:
 $ git clone https://github.com/4383/machine
 $ docker build -t machine-python310 .
 $ docker run -it --rm --name mpython310 --mount type=bind,source="$(pwd)",target=/home/developer/app machine-python310 /bin/bash
+> pip install -r app/python/requirements.txt
 > python3.10 app/python/asyncio.py
 ```

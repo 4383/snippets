@@ -11,5 +11,6 @@ async def main():
         for i in range(5000):
             tg.create_task(poc(60))
 
-print(f'PID = {os.getpid()}')
-asyncio.run(main())
+if __name__ == "__main__":
+    print(f'PID = {os.getpid()}')
+    asyncio.run(main())
