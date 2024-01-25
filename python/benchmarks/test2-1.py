@@ -20,4 +20,4 @@ threads = [
 print(f'PID = {os.getpid()}')
 [t.join() for t in threads]
 
-# python python/test_thread_client1.py  4,83s user 0,94s system 80% cpu 7,188 total
+# 4,45s user 0,39s system 74% cpu 6,502 total

@@ -12,4 +12,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python python/test_client1.py  4,94s user 0,83s system 80% cpu 7,178 total
+# 5,53s user 0,96s system 62% cpu 10,441 total
