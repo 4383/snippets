@@ -1,6 +1,7 @@
 import argparse
-import random
+import math
 import pdb
+import random
 
 MIN = 300
 MAX = 800
@@ -34,8 +35,8 @@ class Lake():
         return self.center_x, self.center_y
 
     def is_inside(self, x, y):
-        diff = (x - self.center_x)^2 + (y - self.center_y)^2
-        return diff <= self.radius^2
+        diff = pow((x - self.center_x), 2) + pow((y - self.center_y), 2)
+        return diff <= pow(self.radius, 2)
 
 
 def fire(maps):
@@ -64,7 +65,7 @@ def compute(args, maps):
             untouched += 1
         fires.append((x, y, strike))
     
-    estimated_lake_are = maps.area * touched / 100
+    estimated_lake_are = maps.area * touched / args.fires
     print(f"size of the map = {maps.x} x {maps.y}")
     print(f"map area = {maps.area}")
     print(f"lake center position = {lake.center()}")
@@ -101,7 +102,10 @@ def render():
         # RENDER YOUR GAME HERE
         pygame.draw.circle(screen, "blue", (lake.center_x, lake.center_y), lake.radius)
         for el in fires:
-            pygame.draw.circle(screen, "red", (el[0], el[1]), 3)
+            color = "black"
+            if el[2]:
+                color = "red"
+            pygame.draw.circle(screen, color, (el[0], el[1]), 2)
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
